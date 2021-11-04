@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客管理</title>
+    <!--引入样式-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+<!--导航,在ui框架中有线程的组件可以使用-->
+<!--attached表示依附，没有圆角，inverted表示导航栏的颜色反转为黑色-->
+<nav class="ui inverted attached segment">
+    <!--    container可以使得header位置更规范-->
+    <div class="ui container">
+        <!--        secondary表示修改项目herf的  样式-->
+        <!--        stackable表示可堆叠，可以适应手机端-->
+        <div class="ui inverted secondary stackable menu">
+            <!--    teal表示颜色-->
+            <h2 class="ui teal header">Blog</h2>
+            <!--            i标签表示引入官网的图标-->
+            <a href="#"  class="item  m-mobile-hide"><i class=" icon"></i>首页</a>
+            <a href="#"  class="item  m-mobile-hide"><i class=" idea icon"></i>分类</a>
+            <a href="#"  class="item  m-mobile-hide"><i class=" tags icon"></i>标签</a>
+            <!--            添加搜索框用div标签-->
+            <div class="right  item ">
+               <div class="ui dropdown item">
+                   <div class="text">
+                       <img class="ui avatar image" src="https://unsplash.it/100/100/?image=1005">
+                       邓明华
+                   </div>
+                   <i class="dropdown icon"></i>
+                   <div class="menu">
+                       <a href="#" class="item">注销</a>
+                   </div>
+               </div>
+                <a href="#" class="ui menu toggle black icon button m-mobile-show">
+                    <i class="sidebar icon"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</nav>
+<!--二级导航-->
+<div class="ui attached pointing menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="#" th:href="@{/admin/blogs/input}" class="item">发布</a>
+            <a href="#" th:href="@{/admin/blogs}" class="teal active item">列表</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!--中间内容-->
+<div class="m-container-small">
+    <div class="ui container">
+        <form action="#" method="post" class="ui secondary segment form">
+<!--            隐含域-->
+            <input type="hidden" name="page">
+            <div class="inline fields">
+                <div class="field">
+                    <input type="text" name="title" placeholder="标题">
+                </div>
+                <div class="field">
+                    <div class="ui labeled action input">
+                        <div class="ui type selection dropdown">
+                            <input type="hidden" name="typeId">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">分类</div>
+                            <div class="menu">
+                                <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}" th:text="${type.name}">错误日志</div>
+                            </div>
+                        </div>
+                        <button  class="ui clear button">clear</button>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" id="recommend" name="recommend">
+                        <label for="recommend">推荐</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <button type="button" id="search-btn" class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
+                </div>
+            </div>
+        </form>
+<!--        给table的外层添加一个id为了实现table的提交-->
+        <div id="table-container">
+        <table th:fragment="blogList" class="ui compact teal table">
+<!--            表头制作-->
+            <thead>
+            <tr>
+                <th></th>
+                <th>标题</th>
+                <th>类型</th>
+                <th>推荐</th>
+                <th>状态</th>
+                <th>更新时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="blog.iterStat : ${page.content}">
+                <td th:text="${iterStat.count}">1</td>
+                <td th:text="${blog.title}">刻意练习</td>
+                <td th:text="${blog.type.name}">认知升级</td>
+                <td th:text="${blog.recommend} ? '是' : '否'">是</td>
+                <td th:text="${blog.published} ? '草稿' : '发布'">草稿</td>
+                <td th:text="${blog.updateTime}">2021-08-01</td>
+                <td>
+                    <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog['id']})}" class="ui mini teal basic button">编辑</a>
+                    <a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog['id']})}" class="ui mini red basic button">删除</a>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="7">
+                    <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
+<!--写分页逻辑  onclick动态地获取对象    data-page是自定义的属性，记住其定义方式-->
+                        <a onclick="page(this)" th:attr="data-page=${page.number}-1)}" class="ui button" th:unless="${page.first}">上一页</a>
+                        <a onclick="page(this)" th:attr="data-page=${page.number}+1)}" class="ui button" th:unless="${page.last}">下一页</a>
+                    </div>
+                    <a href="#" th:href="@{/admin/blogs/input}" class="ui mini right floated teal basic button">新增</a>
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--底部footer  m-padded-tb-massive表示自定义类-->
+<footer class="ui inverted vertical segment m-padded-tb-massive">
+    <!--        添加container容器与导航栏一致,center aligned表示该容器中文字居中-->
+    <div class="ui center aligned container">
+        <!--        grid表示将div分成16份，在该div中可以声明固定份数的div    -->
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <img src="../../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image" style="width: 110px">
+            </div>
+            <div class="four wide column">
+                <h4 class="ui inverted head">最新博客</h4>
+                <div class="ui inverted link list">
+                    <!--                        a href表示列表中的条目-->
+                    <a href="#" class="item">用户故事（User Story）</a>
+                    <a href="#" class="item">用于刻意练习的清单</a>
+                    <a href="#" class="item">失败要趁早</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h4 class="ui inverted head">联系我</h4>
+                <div class="ui inverted link list">
+                    <!--                        a href表示列表中的条目-->
+                    <a href="#" class="item">qq邮箱：2313978908@qq.com</a>
+                    <a href="#" class="item">电话号码: 15059940062</a>
+                </div>
+            </div>
+            <div class="five wide column">
+                <h4 class="ui inverted head">DengMH</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这的人有所帮助</a>
+
+                </div>
+            </div>
+        </div>
+        <!--            画一条横线-->
+        <div class="ui inverted section divider"></div>
+        <p>Designed by DengMH</p>
+    </div>
+
+</footer>
+
+
+<!--引入框架-->
+<!--引入组件-->
+
+<!--引入jquery-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script>
+    $('.ui.dropdown').dropdown();
+    function page(obj){
+        $("[name = 'page']").val($(obj).data("page"));
+        loaddate();
+    }
+    //写一个”搜索“的点击事件
+    $("search-btn").click(function (){
+        $("[name = 'page']").val(0);
+        loaddate();
+    });
+    //点击按钮时可以清除筛选条件
+    $('.clear.button')
+      .on('click',function () {
+          $('.type.ui.dropdown')
+            .dropdown('clear');
+      });
+    function loaddate(){
+        $("#table-container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search", {
+            title: $("[name='title']").val(),
+            typeId: $("[name='typeId']").val(),
+            recommend: $("[name='recommend']").val(),
+            page: $("[name='page']").val(),
+        });
+    }
+</script>
+</body>
+</html>

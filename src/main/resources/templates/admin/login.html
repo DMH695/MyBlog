@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客管理登录</title>
+    <!--引入样式-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<!--中间内容-->
+<div class="m-container-small"  style="max-width: 30em !important;">
+    <div class="ui container">
+        <div class="column">
+            <h2 class="ui container teal image header">
+                    管理后台登录
+            </h2>
+<!--            action表示定义后台的控制器路径  此时后台为postmapping（'/login'）来处理这个表单-->
+            <form class="ui large form" method="post" action="#" th:action="@{/admin/login}">
+                <div class="ui stacked segment">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="username" placeholder="用户名">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="密码">
+                        </div>
+                    </div>
+<!--也可以舍去submit-->
+                    <button class="ui fluid large teal submit button">登  录</button>
+                </div>
+                <div class="ui error message"></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script>
+<!--    用户名和密码的非空验证-->
+    $('.ui.form').form({
+        fields: {
+            username: {
+                identifier: 'username',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入用户名'
+                }]
+            },
+            password: {
+                identifier: 'password',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入密码'
+                }]
+            }
+        }
+    })
+</script>
+</body>
+</html>

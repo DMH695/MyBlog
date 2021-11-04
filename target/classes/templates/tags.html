@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签</title>
+    <!--引入样式-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+<!--导航,在ui框架中有线程的组件可以使用-->
+<!--attached表示依附，没有圆角，inverted表示导航栏的颜色反转为黑色-->
+<nav class="ui inverted attached segment">
+    <!--    container可以使得header位置更规范-->
+    <div class="ui container">
+        <!--        secondary表示修改项目herf的  样式-->
+        <!--        stackable表示可堆叠，可以适应手机端-->
+        <div class="ui inverted secondary stackable menu">
+            <!--    teal表示颜色-->
+            <h2 class="ui teal header">Blog</h2>
+            <!--            i标签表示引入官网的图标-->
+            <a herf="#"  class="item  m-mobile-hide"><i class=" icon"></i>首页</a>
+            <a herf="#"  class="item  m-mobile-hide"><i class=" idea icon"></i>分类</a>
+<!--            active表示当前所在为标签页-->
+            <a herf="#"  class=" active item  m-mobile-hide"><i class=" tags icon"></i>标签</a>
+            <a herf="#"  class="item  m-mobile-hide"><i class=" clone icon"></i>归档</a>
+            <a herf="#"  class="item  m-mobile-hide"><i class=" info icon"></i>关于我</a>
+            <!--            添加搜索框用div标签-->
+            <div class="right  item m-mobile-hide">
+                <!--                transparent表示搜索栏是透明的-->
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="Search...">
+                    <!--                    link标签表示有一个放大镜一样的图标-->
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    在手机端的右上角添加一个目录标志  并且只在手机端的时候显示出来-->
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+
+
+
+
+
+
+<!--中间内容-->
+<div class="m-container-small">
+    <div class="ui container">
+<!--        header-->
+        <div class="ui top attached segment">
+            <div class="ui middle aligned two column grid">
+                <div class="column">
+                    <h3 class="ui teal header">分类</h3>
+                </div>
+                <div class="right aligned column">
+                    共<h2 class="ui orange header m-text-thin m-inline-block">14</h2>个
+                </div>
+            </div>
+        </div>
+<!--标签-->
+        <div class="ui teal segment">
+            <a href="#" target="_blank" class="ui teal basic left pointing label">方法论
+                <div class="detail">23</div>
+            </a>
+            <a href="#" target="_blank" class="ui teal basic left pointing label">方法论
+                <div class="detail">23</div>
+            </a>
+            <a href="#" target="_blank" class="ui teal basic left pointing label">方法论
+                <div class="detail">23</div>
+            </a>
+            <a href="#" target="_blank" class="ui teal basic left pointing label">方法论
+                <div class="detail">23</div>
+            </a>
+            <a href="#" target="_blank" class="ui teal basic left pointing label">方法论
+                <div class="detail">23</div>
+            </a>
+            <a href="#" target="_blank" class="ui teal basic left pointing label">方法论
+                <div class="detail">23</div>
+            </a>
+            <a href="#" target="_blank" class="ui teal basic left pointing label">方法论
+                <div class="detail">23</div>
+            </a>
+            <a href="#" target="_blank" class="ui teal basic left pointing label">方法论
+                <div class="detail">23</div>
+            </a>
+            <a href="#" target="_blank" class="ui teal basic left pointing label">方法论
+                <div class="detail">23</div>
+            </a>
+        </div>
+<!-- 各种标签所对应的博客列表-->
+        <div class="ui attached teal segment">
+        <div class="ui  segment">
+            <!--                        mobile reversed表示在手机端的时候可以将图片置于文字的上方-->
+            <div class="ui mobile reversed stackable grid">
+                <div class="eleven wide column">
+                    <h3 class="ui header">你真的理解什么是财富自由吗？</h3>
+                    <p>简单说来，财富自由就是有足够多的时间和足够多的钱做你想做的事情。在“基本”的生活需求得到“持续”保障的前提下，有足够的资本可以“自由”的投入到“该”做的事情中。</p>
+                    <div class="ui grid">
+                        <div class="row">
+                            <div class="eleven wide column">
+                                <div class="ui horizontal link list">
+                                    <div class="item">
+                                        <img src="https://unsplash.it/100/100/?image=1005" alt="" class="ui avatar  image">
+                                        <div class="content"><a href="#" class="header">邓明华</a></div>
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar icon"></i> 2017-10-01
+                                    </div>
+                                    <div class="item">
+                                        <i class="eye icon"></i> 2222
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right aligned five wide column">
+                                <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <a href="#" class="ui basic teal left pointing label">方法论</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="five wide column">
+                    <a href="#" target="_blank">
+                        <img src="https://unsplash.it/800/450/?image=1005" alt="" class="ui rounded image">
+                    </a>
+                </div>
+            </div>
+        </div>
+            <div class="ui  segment">
+                <!--                        mobile reversed表示在手机端的时候可以将图片置于文字的上方-->
+                <div class="ui mobile reversed stackable grid">
+                    <div class="eleven wide column">
+                        <h3 class="ui header">你真的理解什么是财富自由吗？</h3>
+                        <p>简单说来，财富自由就是有足够多的时间和足够多的钱做你想做的事情。在“基本”的生活需求得到“持续”保障的前提下，有足够的资本可以“自由”的投入到“该”做的事情中。</p>
+                        <div class="ui grid">
+                            <div class="row">
+                                <div class="eleven wide column">
+                                    <div class="ui horizontal link list">
+                                        <div class="item">
+                                            <img src="https://unsplash.it/100/100/?image=1005" alt="" class="ui avatar  image">
+                                            <div class="content"><a href="#" class="header">邓明华</a></div>
+                                        </div>
+                                        <div class="item">
+                                            <i class="calendar icon"></i> 2017-10-01
+                                        </div>
+                                        <div class="item">
+                                            <i class="eye icon"></i> 2222
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right aligned five wide column">
+                                    <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="ui basic teal left pointing label">方法论</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="five wide column">
+                        <a href="#" target="_blank">
+                            <img src="https://unsplash.it/800/450/?image=1005" alt="" class="ui rounded image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ui  segment">
+                <!--                        mobile reversed表示在手机端的时候可以将图片置于文字的上方-->
+                <div class="ui mobile reversed stackable grid">
+                    <div class="eleven wide column">
+                        <h3 class="ui header">你真的理解什么是财富自由吗？</h3>
+                        <p>简单说来，财富自由就是有足够多的时间和足够多的钱做你想做的事情。在“基本”的生活需求得到“持续”保障的前提下，有足够的资本可以“自由”的投入到“该”做的事情中。</p>
+                        <div class="ui grid">
+                            <div class="row">
+                                <div class="eleven wide column">
+                                    <div class="ui horizontal link list">
+                                        <div class="item">
+                                            <img src="https://unsplash.it/100/100/?image=1005" alt="" class="ui avatar  image">
+                                            <div class="content"><a href="#" class="header">邓明华</a></div>
+                                        </div>
+                                        <div class="item">
+                                            <i class="calendar icon"></i> 2017-10-01
+                                        </div>
+                                        <div class="item">
+                                            <i class="eye icon"></i> 2222
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right aligned five wide column">
+                                    <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="ui basic teal left pointing label">方法论</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="five wide column">
+                        <a href="#" target="_blank">
+                            <img src="https://unsplash.it/800/450/?image=1005" alt="" class="ui rounded image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ui  segment">
+                <!--                        mobile reversed表示在手机端的时候可以将图片置于文字的上方-->
+                <div class="ui mobile reversed stackable grid">
+                    <div class="eleven wide column">
+                        <h3 class="ui header">你真的理解什么是财富自由吗？</h3>
+                        <p>简单说来，财富自由就是有足够多的时间和足够多的钱做你想做的事情。在“基本”的生活需求得到“持续”保障的前提下，有足够的资本可以“自由”的投入到“该”做的事情中。</p>
+                        <div class="ui grid">
+                            <div class="row">
+                                <div class="eleven wide column">
+                                    <div class="ui horizontal link list">
+                                        <div class="item">
+                                            <img src="https://unsplash.it/100/100/?image=1005" alt="" class="ui avatar  image">
+                                            <div class="content"><a href="#" class="header">邓明华</a></div>
+                                        </div>
+                                        <div class="item">
+                                            <i class="calendar icon"></i> 2017-10-01
+                                        </div>
+                                        <div class="item">
+                                            <i class="eye icon"></i> 2222
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right aligned five wide column">
+                                    <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="ui basic teal left pointing label">方法论</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="five wide column">
+                        <a href="#" target="_blank">
+                            <img src="https://unsplash.it/800/450/?image=1005" alt="" class="ui rounded image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ui  segment">
+                <!--                        mobile reversed表示在手机端的时候可以将图片置于文字的上方-->
+                <div class="ui mobile reversed stackable grid">
+                    <div class="eleven wide column">
+                        <h3 class="ui header">你真的理解什么是财富自由吗？</h3>
+                        <p>简单说来，财富自由就是有足够多的时间和足够多的钱做你想做的事情。在“基本”的生活需求得到“持续”保障的前提下，有足够的资本可以“自由”的投入到“该”做的事情中。</p>
+                        <div class="ui grid">
+                            <div class="row">
+                                <div class="eleven wide column">
+                                    <div class="ui horizontal link list">
+                                        <div class="item">
+                                            <img src="https://unsplash.it/100/100/?image=1005" alt="" class="ui avatar  image">
+                                            <div class="content"><a href="#" class="header">邓明华</a></div>
+                                        </div>
+                                        <div class="item">
+                                            <i class="calendar icon"></i> 2017-10-01
+                                        </div>
+                                        <div class="item">
+                                            <i class="eye icon"></i> 2222
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right aligned five wide column">
+                                    <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="ui basic teal left pointing label">方法论</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="five wide column">
+                        <a href="#" target="_blank">
+                            <img src="https://unsplash.it/800/450/?image=1005" alt="" class="ui rounded image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ui  segment">
+                <!--                        mobile reversed表示在手机端的时候可以将图片置于文字的上方-->
+                <div class="ui mobile reversed stackable grid">
+                    <div class="eleven wide column">
+                        <h3 class="ui header">你真的理解什么是财富自由吗？</h3>
+                        <p>简单说来，财富自由就是有足够多的时间和足够多的钱做你想做的事情。在“基本”的生活需求得到“持续”保障的前提下，有足够的资本可以“自由”的投入到“该”做的事情中。</p>
+                        <div class="ui grid">
+                            <div class="row">
+                                <div class="eleven wide column">
+                                    <div class="ui horizontal link list">
+                                        <div class="item">
+                                            <img src="https://unsplash.it/100/100/?image=1005" alt="" class="ui avatar  image">
+                                            <div class="content"><a href="#" class="header">邓明华</a></div>
+                                        </div>
+                                        <div class="item">
+                                            <i class="calendar icon"></i> 2017-10-01
+                                        </div>
+                                        <div class="item">
+                                            <i class="eye icon"></i> 2222
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right aligned five wide column">
+                                    <a href="#" target="_blank" class="ui teal basic label m-text-thin">认知升级</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="ui basic teal left pointing label">方法论</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="five wide column">
+                        <a href="#" target="_blank">
+                            <img src="https://unsplash.it/800/450/?image=1005" alt="" class="ui rounded image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--        底部分页-->
+        <div class="ui bottom attached segment">
+            <div class="ui two column grid">
+                <div class="column">
+                    <a href="#" class="ui mini teal basic button">上一页</a>
+                </div>
+                <div class="right aligned column">
+                    <a href="#" class="ui mini teal basic button">下一页</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--底部footer  m-padded-tb-massive表示自定义类-->
+<footer class="ui inverted vertical segment m-padded-tb-massive">
+    <!--        添加container容器与导航栏一致,center aligned表示该容器中文字居中-->
+    <div class="ui center aligned container">
+        <!--        grid表示将div分成16份，在该div中可以声明固定份数的div    -->
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image" style="width: 110px">
+            </div>
+            <div class="four wide column">
+                <h4 class="ui inverted head">最新博客</h4>
+                <div class="ui inverted link list">
+                    <!--                        a href表示列表中的条目-->
+                    <a href="#" class="item">用户故事（User Story）</a>
+                    <a href="#" class="item">用于刻意练习的清单</a>
+                    <a href="#" class="item">失败要趁早</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h4 class="ui inverted head">联系我</h4>
+                <div class="ui inverted link list">
+                    <!--                        a href表示列表中的条目-->
+                    <a href="#" class="item">qq邮箱：2313978908@qq.com</a>
+                    <a href="#" class="item">电话号码: 15059940062</a>
+                </div>
+            </div>
+            <div class="five wide column">
+                <h4 class="ui inverted head">DengMH</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这的人有所帮助</a>
+
+                </div>
+            </div>
+        </div>
+        <!--            画一条横线-->
+        <div class="ui inverted section divider"></div>
+        <p>Designed by DengMH</p>
+    </div>
+
+</footer>
+
+
+<!--引入框架-->
+<!--引入组件-->
+
+<!--引入jquery-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/src/core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+
+</body>
+</html>
